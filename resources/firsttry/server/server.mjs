@@ -29,7 +29,7 @@ chat.registerCmd('sethp', (player, arg) => {
 
     let amount = parseInt(arg[0]);
 
-    if (amount < 100) {
+    if (amount <= 100) {
         amount += 100;
     }
 

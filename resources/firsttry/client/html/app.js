@@ -7,7 +7,17 @@ class App extends Component {
         super(props);
         this.state = {
             name: 'John Doe',
-            pos: { x: 'ici', y: 'lol', z: 'plop' }
+            pos: { x: 'ici', y: 'lol', z: 'plop' },
+            vehicles: [
+                'raiden',
+                'brioso',
+                'washington',
+                'akuma',
+                'sanctus',
+                'infernus',
+                'shotaro',
+                'cheetah'
+            ]
         };
 
         this.keydownBind = this.keydown.bind(this);
@@ -55,17 +65,21 @@ class App extends Component {
         }
     }
 
+    renderVehicles() {
+        const vehicles = this.state.vehicles.map(vehicle => {
+            return h('button', { id: vehicle, onclick: this.spawnVehicle.bind(this) }, vehicle);
+        });
+
+        return h('div', {}, vehicles);
+    }
+
     render() {
         //return h('span', {}, this.state.name + ' ' + this.state.pos['x']);
-        return h(
-            'div',
-            {},
-            h('button', { id: 'akuma', onclick: this.spawnVehicle.bind(this) }, 'Spawn Akuma')
-        );
+        return h('div', {}, h(this.renderVehicles.bind(this)));
     }
 }
 
-render(h(App), document.querySelector('#myname'));
+render(h(App), document.querySelector('#render'));
 
 /*
 function displayName(name) {
