@@ -19,6 +19,9 @@ alt.onClient('spawn:Ready', (player, pos) => {
     player.spawn(pos.x, pos.y, pos.z, 0);
 });
 
+alt.onClient('spawn:Vehicle', spawnVehicle);
+
+//command
 chat.registerCmd('sethp', (player, arg) => {
     if (arg && arg.length <= 0) {
         return;
@@ -41,9 +44,14 @@ chat.registerCmd('loadpage', player => {
 });
 
 chat.registerCmd('veh', (player, arg) => {
+    spawnVehicle(player, arg[0]);
+});
+
+//fonction
+function spawnVehicle(player, model) {
     try {
         const newVehicle = new alt.Vehicle(
-            arg[0],
+            model,
             player.pos.x + 2,
             player.pos.y + 2,
             player.pos.z,
@@ -57,4 +65,4 @@ chat.registerCmd('veh', (player, arg) => {
     } catch (err) {
         chat.send(player, "Le véhicule n'existe pas");
     }
-});
+}

@@ -15,6 +15,7 @@ alt.onServer('webview:Load', () => {
         alt.log('yes');
         webview = new alt.WebView('http://resource/client/html/index.html');
         webview.on('close:Webview', closeWebview);
+        webview.on('spawn:Vehicle', spawnVehicle);
         webview.on('ready', ready);
         webview.focus();
     }
@@ -25,6 +26,10 @@ alt.onServer('webview:Load', () => {
 function ready() {
     webview.emit('display:Name', alt.Player.local.name);
     webview.emit('display:Pos', alt.Player.local.pos);
+}
+
+function spawnVehicle(model) {
+    alt.emitServer('spawn:Vehicle', model);
 }
 
 function closeWebview() {

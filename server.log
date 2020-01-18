@@ -1,15 +1,14 @@
-[13:43:28] alt:V Server, build #956, branch beta
-[13:43:28] Starting alt:V Server on 0.0.0.0:7788
-[13:43:28] Loading resource firsttry
-[13:43:28] Loading resource chat
-[13:43:28] Loaded resource chat
-[13:43:28] Loaded resource firsttry
-[13:43:28] Starting HTTP server on 0.0.0.0:7788
-[13:43:28] Server started
-[13:43:47] [chat:cmd] MstrKnight: /loadpage
-[13:44:13] [chat:cmd] MstrKnight: /loadpage
-[13:57:08] Stopping resource chat
-[13:57:08] Stopped resource chat
-[13:57:08] Stopping resource firsttry
-[13:57:08] Stopped resource firsttry
-[13:57:08] MiniDump created.
+[15:49:06] alt:V Server, build #956, branch beta
+[15:49:06] Starting alt:V Server on 0.0.0.0:7788
+[15:49:06] Loading resource firsttry
+[15:49:06] Loading resource chat
+[15:49:06] Loaded resource chat
+[15:49:06] Loaded resource firsttry
+[15:49:06] Starting HTTP server on 0.0.0.0:7788
+[15:49:06] Server started
+[15:49:20] [chat:cmd] MstrKnight: /loadpage
+[15:53:04] Stopping resource chat
+[15:53:04] Stopped resource chat
+[15:53:04] Stopping resource firsttry
+[15:53:04] Stopped resource firsttry
+[15:53:04] MiniDump created.
