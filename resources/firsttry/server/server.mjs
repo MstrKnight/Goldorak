@@ -1,7 +1,23 @@
 import * as alt from 'alt';
 import chat from 'chat';
+import mysql from 'mysql';
 
-const standardModel = 'ig_tylerdix';
+const cnx = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'goldorak'
+});
+
+cnx.connect(function(error) {
+    if (error) {
+        console.error('error connecting :' + error.stack);
+        return;
+    }
+    console.log('Connected as id :' + cnx.threadId);
+});
+
+const standardModel = 'mp_m_freemode_01';
 
 const spawnPos = {
     x: 205.316,
@@ -28,15 +44,20 @@ chat.registerCmd('sethp', (player, arg) => {
     }
 
     let amount = parseInt(arg[0]);
-
+    if (isNaN(amount)) {
+        return;
+    }
     if (amount <= 100) {
         amount += 100;
     }
 
-    if (isNaN(amount)) {
-        return;
-    }
     player.health = amount;
+});
+
+chat.registerCmd('getmeta', player => {
+    player.setSyncedMeta('money', 1250);
+    // player.setEyeColor(getRandomInt(15));
+    alt.emitClient(player, 'change:Ped', player);
 });
 
 chat.registerCmd('loadpage', player => {
@@ -48,6 +69,11 @@ chat.registerCmd('veh', (player, arg) => {
 });
 
 //fonction
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}
+
 function spawnVehicle(player, model) {
     try {
         const newVehicle = new alt.Vehicle(
